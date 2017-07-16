@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="containerItem">{{prompt}}</view>
+  <form class="containerItem">
+    <input id="metarInput" value="" type="text" placeholder="METAR" focus bindinput="metarInput"/>
+  </form>
+  <form class="containerItem button">
+    <button size="normal" type="primary" class="button" bindtap="decodeMetar">{{decode_metar}}</button>
+  </form>
+  <view class="containerItem">{{result}}</view>
+  <view id="metarDecoded" class="containerItem" wx:if="{{decodedMetarAvailable}}">
+    <text>机场四字码: {{metar_nodes.airport}}\n</text>
+    <text>报文发布UTC时间：{{metar_nodes.day}}日 {{metar_nodes.hour}}时 {{metar_nodes.min}}分\n</text>
+    <text>风向：{{metar_nodes.wind.course}}°，风速：{{metar_nodes.wind.speed}} {{metar_nodes.wind.measure}}\n</text>
+
+    <!-- Visibility is CAVOK or in meters?  -->
+    <text wx:if="{{metar_nodes.visibility}} == 'CAVOK' || {{metar_nodes.visibility}} == 'cavok'">能见度：CAVOK\n</text>
+    <text wx:else>能见度：{{metar_nodes.visibility}}米\n</text>
+
+    <view class="listItem" wx:if="{{metar_nodes.clouds.length > 0}}" wx:for="{{metar_nodes.clouds}}">
+      <text>云层：</text>
+      <text>{{item.code}}@{{item.base}}FT</text>
+    </view>
+
+    <text>目前气温：{{metar_nodes.temperature}}℃\n</text>
+    <text>目前露点：{{metar_nodes.dewPoint}}℃\n</text>
+    <text>QNH: {{metar_nodes.qnh}}百帕</text>
+
+    <!-- Runway visual range  -->
+    <view class="listItem" wx:if="{{metar_nodes.rvr.length > 0}}" wx:for="{{metar_nodes.rvr}}">
+      <text>跑道{{item.rwy}}视程{{item.visibility}}米</text>
+    </view>
+
+    <!-- Is there any forecast? -->
+    <text wx:if="{{metar_nodes.forecast}}">预报：{{metar_nodes.forecast}}\n</text>
+  </view>
+</view>

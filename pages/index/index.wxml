@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+  <text>{{welcome_msg}}</text>
+
+  <view class="buttonContainer">
+    <button size="normal" type="primary" class="button" bindtap="gotoMetarDecodePage">{{decode_metar}}</button>
+  </view>
+
+  <view class="buttonContainer">
+    <button size="normal" type="primary" class="button" bindtap="gotoTafDecodePage">{{decode_taf}}</button>
+  </view>
+
+  <view class="buttonContainer">
+    <button size="normal" type="primary" class="button" bindtap="gotoAboutPage">{{about}}</button>
+  </view>
+  
+</view>

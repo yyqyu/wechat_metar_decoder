@@ -1,0 +1,9 @@
+/**index.wxss**/
+.button {
+  width: 60%;
+}
+
+.buttonContainer {
+  width: 100%;
+  margin-top: 30px;
+}

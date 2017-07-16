@@ -1,0 +1,14 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/metar/metar",
+    "pages/taf/taf",
+    "pages/about/about"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "METAR和TAF解码工具",
+    "navigationBarTextStyle":"black"
+  }
+}

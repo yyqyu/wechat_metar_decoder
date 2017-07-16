@@ -1,0 +1,10 @@
+/* pages/about/about.wxss */
+
+.about_content {
+  font-size: 14px
+}
+
+.icon {
+  height: 40%;
+  width: 40%;
+}
