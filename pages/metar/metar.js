@@ -1,5 +1,4 @@
 var metarUtil = require("../../utils/metar.js");
-var util = require('../../utils/util.js')
 
 var app = getApp();
 
